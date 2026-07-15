@@ -22,19 +22,27 @@ public class CategoriaServico {
   }
 
   public Optional<Categoria> buscarPorCodigo(Long codigo){
-    return categoriaRepository.findById(codigo);
+    return categoriaRepository.findById(codigo.longValue());
   }
 
   public Categoria salvar(Categoria categoria){
+    validate(categoria);
+
     return categoriaRepository.save(categoria);
   }
 
   public Categoria atualizar(Long codigo, Categoria categoria){
+    validate(categoria);
+
     Categoria categoriaSalvar = validarCategoria(codigo);
 
     BeanUtils.copyProperties(categoria, categoriaSalvar, "codigo");
 
     return categoriaRepository.save(categoriaSalvar);
+  }
+
+  public void deletar(Long codigo){
+    categoriaRepository.deleteById(codigo.longValue());
   }
 
   private Categoria validarCategoria(Long codigo){
@@ -45,5 +53,13 @@ public class CategoriaServico {
     }
 
     return categoria.get();
+  }
+
+  private void validate(Categoria categoria){
+    Categoria categoriaEncontrada = categoriaRepository.findByNome(categoria.getNome());
+
+    if(categoriaEncontrada != null && categoriaEncontrada.getCodigo() != categoria.getCodigo()){
+      throw new IllegalArgumentException();
+    }
   }
 }

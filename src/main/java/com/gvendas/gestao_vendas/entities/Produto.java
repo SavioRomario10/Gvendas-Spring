@@ -2,6 +2,8 @@ package com.gvendas.gestao_vendas.entities;
 
 import java.math.BigDecimal;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "produto")
@@ -21,20 +25,27 @@ public class Produto {
   private Long codigo;
 
   @Column(name = "descricao")
+  @NotBlank(message = "descricao")
+  @Length(min = 3, max = 50, message = "descrição")
   private String descricao;
 
   @Column(name = "quantidade")
+  @NotNull(message = "quantidade")
   private Integer quantidade;
 
   @Column(name = "preco_custo")
+  @NotNull(message = "Preço custo")
   private BigDecimal precoCusto;
 
   @Column(name = "preco_venda")
+  @NotNull(message = "Preço Venda")
   private BigDecimal precoVenda;
 
   @Column(name = "observacao")
+  @Length(max = 150, message = "Observação")
   private String observavao;
 
+  @NotNull(message = "Categoria")
   @ManyToOne
   @JoinColumn(name = "codigo_categoria", referencedColumnName = "codigo")
   private Categoria categoria;
