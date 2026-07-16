@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gvendas.gestao_vendas.entities.Produto;
@@ -13,11 +12,13 @@ import com.gvendas.gestao_vendas.repository.ProdutoRepository;
 @Service
 public class ProdutoService {
 
-  @Autowired
-  private ProdutoRepository produtoRepository;
+  private final ProdutoRepository produtoRepository;
+  private final CategoriaServico categoriaServico;
 
-  @Autowired
-  private CategoriaServico categoriaServico;
+  ProdutoService(CategoriaServico categoriaServico, ProdutoRepository produtoRepository) {
+    this.categoriaServico = categoriaServico;
+    this.produtoRepository = produtoRepository;
+  }  
 
   public List<Produto> listarTodos(Long codigoCategoria){
     return produtoRepository.findByCategoriaCodigo(codigoCategoria);

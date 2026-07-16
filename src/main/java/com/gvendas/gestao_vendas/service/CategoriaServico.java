@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,11 @@ import com.gvendas.gestao_vendas.repository.CategoriaRepository;
 @Service
 public class CategoriaServico {
 
-  @Autowired
-  private CategoriaRepository categoriaRepository;
+  private final CategoriaRepository categoriaRepository;
+
+  CategoriaServico(CategoriaRepository categoriaRepository) {
+    this.categoriaRepository = categoriaRepository;
+  }
 
   public List<Categoria> listarTodos(){
     return categoriaRepository.findAll();
