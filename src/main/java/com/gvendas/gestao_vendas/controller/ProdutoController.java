@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gvendas.gestao_vendas.dto.produto.ProdutoRequestDto;
+import com.gvendas.gestao_vendas.dto.produto.ProdutoRequestDTO;
 import com.gvendas.gestao_vendas.dto.produto.ProdutoResponseDTO;
 import com.gvendas.gestao_vendas.entities.Produto;
 import com.gvendas.gestao_vendas.service.ProdutoService;
@@ -56,7 +56,7 @@ public class ProdutoController {
 
   @PostMapping
   @Operation(summary = "Salvar um produto")
-  public ResponseEntity<ProdutoResponseDTO> salvar(@PathVariable Long codigoCategoria, @Valid @RequestBody ProdutoRequestDto produto){
+  public ResponseEntity<ProdutoResponseDTO> salvar(@PathVariable Long codigoCategoria, @Valid @RequestBody ProdutoRequestDTO produto){
 
     Produto produtoSalvo = produtoService.salvar(codigoCategoria, produto.converter(codigoCategoria));
 
@@ -70,7 +70,7 @@ public class ProdutoController {
   public ResponseEntity<ProdutoResponseDTO> atualizar(
     @PathVariable Long codigoCategoria, 
     @PathVariable Long codigoProduto, 
-    @Valid @RequestBody ProdutoRequestDto produto){
+    @Valid @RequestBody ProdutoRequestDTO produto){
 
     Produto atualizado = produtoService.atualizar(codigoCategoria, codigoProduto, produto.converter(codigoCategoria, codigoProduto));
 

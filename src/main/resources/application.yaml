@@ -14,3 +14,13 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 
+          - info
+          - health
+          - metrics
+          - prometheus

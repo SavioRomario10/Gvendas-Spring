@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Schema(description = "Requisição de produto")
-public class ProdutoRequestDto {
+public class ProdutoRequestDTO {
 
   @Schema(description = "Descrição do produto")
   @NotBlank(message = "descricao")

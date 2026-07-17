@@ -1,0 +1,43 @@
+CREATE TABLE cliente (
+    codigo BIGSERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    ativo BOOLEAN NOT NULL,
+    logradouro VARCHAR(30),
+    numero INTEGER,
+    complemento VARCHAR(30),
+    bairro VARCHAR(30),
+    cep VARCHAR(30),
+    cidade VARCHAR(30),
+    estado VARCHAR(30)
+);
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('João Silva', '(34) 99261-4270', TRUE, 'Rua do Abacaxi', 10, NULL, 'Brasil', '38.400-122', 'Uberlândia', 'MG');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Maria Rita', '(34) 99261-4270', TRUE, 'Rua do Sabiá', 110, 'Apto 101', 'Colina', '11.400-122', 'Ribeirão Preto', 'SP');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Pedro Santos', '(34) 99261-4270', TRUE, 'Rua da Bateria', 23, NULL, 'Morumbi', '54.212-122', 'Goiânia', 'GO');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Ricardo Pereira', '(34) 99261-4270', TRUE, 'Rua do Motorista', 123, 'Apto 302', 'Aparecida', '38.400-122', 'Salvador', 'BA');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Josué Mariano', '(34) 99261-4270', TRUE, 'Av Rio Branco', 321, NULL, 'Jardins', '56.400-122', 'Natal', 'RN');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Pedro Barbosa', '(34) 99261-4270', TRUE, 'Av Brasil', 100, NULL, 'Tubalina', '77.400-123', 'Porto Alegre', 'RS');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Henrique Medeiros', '(34) 99261-4270', TRUE, 'Rua do Sapo', 1120, 'Apto 201', 'Centro', '12.400-124', 'Rio de Janeiro', 'RJ');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Carlos Santana', '(34) 99261-4270', TRUE, 'Rua da Manga', 433, NULL, 'Centro', '31.400-124', 'Belo Horizonte', 'MG');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Leonardo Oliveira', '(34) 99261-4270', TRUE, 'Rua do Músico', 566, NULL, 'Segismundo Pereira', '38.400-005', 'Uberlândia', 'MG');
+
+INSERT INTO cliente (nome, telefone, ativo, logradouro, numero, complemento, bairro, cep, cidade, estado)
+VALUES ('Isabela Martins', '(34) 99261-4270', TRUE, 'Rua da Terra', 1233, 'Apto 10', 'Vigilato', '99.400-125', 'Manaus', 'AM');
