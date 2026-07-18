@@ -47,7 +47,18 @@ public class ProdutoService {
 
     produtoRepository.delete(produto);
   }
+  protected Produto validarProdutoExiste(Long codigoCategoria){
+    Optional<Produto> produto = produtoRepository.findById(codigoCategoria);
+    if (produto.isEmpty()) {
+      throw new IllegalArgumentException();
+    }
+    return produto.get();
+  }
 
+  protected void atualizarQuantidadeVenda(Produto produto){
+    produtoRepository.save(produto);
+  }
+  
   private Produto validarProdutoExiste(Long codigoCategoria, Long codigoPorduto){
     Optional<Produto> produto = buscarPorId(codigoPorduto, codigoCategoria);
     if (produto.isEmpty()) {
